@@ -1,0 +1,534 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+$orange: hsl(26, 100%, 55%); // Default color
+
+// Common properties the for the buttons
+
+@mixin button {
+  width: 65%;
+  display: block;
+  padding: 15px 10px;
+  color: white;
+  background-color: $orange;
+  border: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(163, 0, 0, 0.507);
+  &:hover {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+// Navigation Bar
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ul {
+    list-style-type: none;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 20px 50px;
+    #bars {
+      display: none;
+    }
+    li {
+      padding: 0 20px;
+      .avatar {
+        width: 50px;
+        border: 0px solid $orange;
+        border-radius: 50%;
+        position: relative;
+        &:hover {
+          border-width: 2px;
+        }
+      }
+      i {
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      img {
+        cursor: pointer;
+      }
+      .cart {
+        position: relative;
+      }
+      .current-cart {
+        position: absolute;
+        top: 25px;
+        right: 150px;
+        background-color: $orange;
+        color: white;
+        padding: 0 5px;
+        font-size: 0.7rem;
+        border-radius: 10px;
+        display: none;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      a {
+        text-decoration: none;
+        color: hsl(219, 9%, 45%);
+        padding-bottom: 27px;
+        border-bottom: 0px solid orange;
+        &:hover {
+          border-width: 5px;
+        }
+      }
+      .cart-details-container {
+        position: absolute;
+        top: 80px;
+        right: 50px;
+        width: 350px;
+        height: 200px;
+        background-color: white;
+        box-shadow: 0px 0px 10px grey;
+        border-radius: 10px;
+        z-index: 2;
+        display: none;
+        p {
+          padding: 10px;
+          font-weight: 700;
+        }
+        hr {
+          opacity: 0.5;
+        }
+        .empty {
+          width: 100%;
+          height: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: hsl(219, 9%, 45%);
+        }
+        .flexHide {
+          display: none;
+        }
+        .content {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 80%;
+          color: hsl(219, 9%, 45%);
+          .bill {
+            padding: 0 20px;
+            .description {
+              display: flex;
+              align-items: center;
+              img {
+                width: 50px;
+                border-radius: 10px;
+              }
+              p {
+                font-size: 0.9rem;
+                .total {
+                  color: black;
+                  padding-left: 10px;
+                }
+              }
+              .bin {
+                width: 15px;
+                border-radius: 0px;
+              }
+            }
+            button {
+              @include button();
+              width: 100%;
+              margin-top: 20px;
+            }
+          }
+        }
+        .flexOpen {
+          display: flex;
+        }
+      }
+      .open {
+        display: block;
+      }
+    }
+  }
+}
+
+// Nav bar hr
+
+hr {
+  background-color: lightgrey;
+  outline: lightgrey;
+  border-color: lightgrey;
+}
+
+// The main container with all the stuff
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  section {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 50px;
+    .main-image001 {
+      position: relative;
+      img {
+        width: 100%;
+        border-radius: 20px;
+        &:hover {
+          opacity: 0.8;
+          cursor: pointer;
+        }
+      }
+      span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        border-radius: 100px;
+        background-color: white;
+        cursor: pointer;
+        display: none;
+        img {
+          width: 100%;
+        }
+      }
+      .pre {
+        left: 10px;
+      }
+      .next {
+        right: 10px;
+      }
+    }
+    .thumbnails {
+      padding-top: 20px;
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1;
+      grid-gap: 20px;
+      height: 100px;
+      img {
+        width: 100%;
+        &:hover {
+          opacity: 0.5;
+          cursor: pointer;
+        }
+      }
+      &::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    }
+  }
+  article {
+    width: 400px;
+    margin-left: 100px;
+    h5 {
+      color: $orange;
+      padding-bottom: 10px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      padding-bottom: 10px;
+    }
+    p {
+      color: hsl(219, 9%, 45%);
+      font-size: 0.9rem;
+      padding-bottom: 20px;
+    }
+    .price {
+      display: flex;
+      align-items: center;
+      span {
+        font-weight: bolder;
+        font-size: 1.3rem;
+      }
+      .discount {
+        font-size: 1rem;
+        margin-left: 20px;
+        background-color: hsl(25, 100%, 94%);
+        color: $orange;
+        display: block;
+        padding: 2px 5px;
+      }
+    }
+    .pre-price {
+      color: hsl(220, 14%, 75%);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .checkout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 50px;
+      .selection {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 30%;
+        background-color: hsl(0, 0%, 89%);
+        padding: 15px 10px;
+        border-radius: 10px;
+        span {
+          &:hover {
+            cursor: pointer;
+            opacity: 0.6;
+          }
+        }
+      }
+      button {
+        @include button();
+        img {
+          width: 15px;
+        }
+      }
+      .btn-disable {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+    .warning {
+      color: rgb(255, 2, 2);
+      padding-top: 10px;
+      display: none;
+    }
+    .warn {
+      display: block;
+    }
+  }
+}
+
+// Image slide show with a different view
+
+.slide-show {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, 0.726);
+  z-index: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  #close {
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 10px 0;
+    cursor: pointer;
+    img {
+      width: 20px;
+    }
+  }
+  .slide-show-main-image {
+    width: 450px;
+    position: relative;
+    img {
+      width: 100%;
+      border-radius: 15px;
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 10px;
+      border-radius: 100px;
+      background-color: white;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+    }
+    .pre {
+      left: -20px;
+    }
+    .next {
+      right: -20px;
+    }
+  }
+  .thumbnails {
+    padding-top: 20px;
+    display: grid;
+    width: 450px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1;
+    grid-gap: 20px;
+    height: 100px;
+    img {
+      width: 100%;
+      border-radius: 20px;
+      &:hover {
+        cursor: pointer;
+        border: 2px solid $orange;
+      }
+    }
+  }
+}
+
+// Side Navigation bar for mobile devices
+
+.side-navigation {
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding: 50px 10px;
+  display: none;
+  span {
+    padding-bottom: 50px;
+    display: block;
+    i {
+      font-size: 1.5rem;
+      color: hsl(219, 9%, 45%);
+      padding-left: 20px;
+      &:hover {
+        color: $orange;
+        cursor: pointer;
+      }
+    }
+  }
+  p {
+    padding: 20px;
+    color: hsl(219, 9%, 45%);
+    &:hover {
+      color: black;
+      cursor: pointer;
+      border-left: 3px solid $orange;
+    }
+  }
+}
+.openSide {
+  display: block;
+}
+
+// Media Queries for the responsive view
+
+@media screen and (max-width: 906px) {
+  nav {
+    .links-ul {
+      li {
+        display: none;
+      }
+      #bars {
+        display: block;
+      }
+      .logo {
+        display: block;
+      }
+    }
+  }
+  main {
+    padding: 0 20px;
+    section,
+    article {
+      width: 50%;
+    }
+    article {
+      margin-left: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 738px) {
+  main {
+    flex-direction: column;
+    section,
+    article {
+      width: 100%;
+    }
+    section {
+      height: auto;
+      .thumbnails {
+        margin-bottom: 100px;
+      }
+    }
+    article {
+      // margin-top: 100px;
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 529px) {
+  nav {
+    ul {
+      padding: 20px 10px;
+    }
+  }
+  main {
+    section {
+      .thumbnails {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 433px) {
+  nav {
+    .links-ul {
+      .logo {
+        display: none;
+      }
+    }
+  }
+  main {
+    section {
+      .main-image001 {
+        img {
+          pointer-events: none;
+        }
+        span {
+          display: block;
+        }
+      }
+      .thumbnails {
+        display: none;
+      }
+      padding-bottom: 20px;
+    }
+    article {
+      .checkout {
+        flex-direction: column;
+        .selection,
+        button {
+          width: 100%;
+        }
+        button {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 258px) {
+  .side-navigation {
+    width: 100%;
+  }
+}
