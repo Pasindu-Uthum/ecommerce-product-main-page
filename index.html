@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://kit.fontawesome.com/58e77607fe.js" crossorigin="anonymous"></script>
+  <title>Frontend Mentor | E-commerce product page</title>
+</head>
+
+<body>
+  <nav>
+    <ul class="links-ul">
+      <li id="bars"><i class="fas fa-bars"></i></li>
+      <li class="logo">
+        <h1>sneakers</h1>
+      </li>
+      <li><a href="#">Collections</a></li>
+      <li><a href="#">Men</a></li>
+      <li><a href="#">Women</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <ul>
+      <li>
+        <img class="cart" src="./images/icon-cart.svg" alt="Cart"></img>
+        <span class="current-cart"></span>
+      </li>
+      <li>
+        <img class="avatar" src="./images/image-avatar.png" alt="Avatar"></img>
+        <div id="cart-container" class="cart-details-container">
+          <p>Cart</p>
+          <hr>
+          <div class="empty">Your cart is empty</div>
+          <div class="content">
+            <div class="bill">
+              <div class="description">
+                <img src="./images/image-product-1-thumbnail.jpg" alt="Product">
+                <p>Fall Limited Edition Sneakers <br>
+                  $125.00 x <span class="amount">0</span> <span class="total">$0.00</span></p>
+                <img class="bin" src="./images/icon-delete.svg" alt="bins">
+              </div>
+              <button>Checkout</button>`;
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <hr>
+
+  <main>
+    <section>
+      <div class="main-image001">
+        <img class="main-image" src="./images/image-product-1.jpg" alt="Shoe Display">
+
+        <span class="pre" onclick="plusDivsSmall(-1)"><img src="./images/icon-previous.svg" alt="Previous"></span>
+        <span class="next" onclick="plusDivsSmall(1)"><img src="./images/icon-next.svg" alt="next"></span>
+      </div>
+      <div class="thumbnails">
+        <img class="image" src="./images/image-product-1.jpg" alt="Thumbnail-1" onclick="show(0)">
+        <img class="image" src="./images/image-product-2.jpg" alt="Thumbnail-2" onclick="show(1)">
+        <img class="image" src="./images/image-product-3.jpg" alt="Thumbnail-3" onclick="show(2)">
+        <img class="image" src="./images/image-product-4.jpg" alt="Thumbnail-4" onclick="show(3)">
+      </div>
+    </section>
+
+    <article>
+      <h5>SNEAKER COMPANY</h5>
+      <h1>Fall Limited Edition Sneakers</h1>
+      <p>These low-profile sneakers are your perfect caual wear companion. Featuring a durable rubber outer sole,
+        they'll
+        withstand everything the weather can offer.</p>
+      <div class="price">
+        <span>$125.00</span> <span class="discount">50%</span>
+      </div>
+      <span class="pre-price"><del>$250.00</del></span>
+
+      <div class="checkout">
+        <div class="selection">
+          <span onclick="add(-1)"><img src="./images/icon-minus.svg" alt="-"></span>
+          <span id="count" style="cursor: unset;">0</span>
+          <span onclick="add(1)"><img src="./images/icon-plus.svg" alt="+"></span>
+        </div>
+        <button id="checkout-button"><img src="./images/icon-cart-white.svg" alt="cart"> Add to cart</button>
+      </div>
+      <span class="warning">Choose a number</span>
+    </article>
+  </main>
+
+  <!-- Image Slide Show Container -->
+  <div class="slide-show">
+    <span id="close"><img src="./images/icon-close.svg" alt="Close"></span>
+    <div class="slide-show-main-image">
+      <img class="main-image-slide-show" src="./images/image-product-1.jpg" alt="Product 1">
+      <span class="pre" onclick="plusDivs(-1)"><img src="./images/icon-previous.svg" alt="Previous"></span>
+      <span class="next" onclick="plusDivs(1)"><img src="./images/icon-next.svg" alt="next"></span>
+    </div>
+    <div class="thumbnails">
+      <img class="image-slide-show" src="./images/image-product-1.jpg" alt="Thumbnail-1" onclick="showSlide(0)">
+      <img class="image-slide-show" src="./images/image-product-2.jpg" alt="Thumbnail-2" onclick="showSlide(1)">
+      <img class="image-slide-show" src="./images/image-product-3.jpg" alt="Thumbnail-3" onclick="showSlide(2)">
+      <img class="image-slide-show" src="./images/image-product-4.jpg" alt="Thumbnail-4" onclick="showSlide(3)">
+    </div>
+  </div>
+
+  <!-- Side Navigation Bar for mobile viewers -->
+  <div class="side-navigation">
+    <span class="side-nav-close"><i class="fas fa-times"></i></span>
+    <p>Collections</p>
+    <p>Men</p>
+    <p>Women</p>
+    <p>About</p>
+    <p>Contact</p>
+  </div>
+  <script src="./script.js"></script>
+</body>
+
+</html>
